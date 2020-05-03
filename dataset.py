@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 from song import *
 import os 
+import sys
 
 # input is in shape ()
 def read_data(diretory_path):
@@ -18,6 +19,7 @@ def read_data(diretory_path):
 
 	if len(mixture_data[0])!=len(bass_data[0]) or len(mixture_data[0])!=len(drums_data[0]) or len(mixture_data[0])!=len(vocals_data[0]) or len(mixture_data[0])!=len(others_data[0]):
 		print("directory sizes me ghapla, plzz check")
+		sys.exit()
 
 	return mixture_data, bass_data, drums_data, vocals_data, others_data
 
