@@ -42,4 +42,4 @@ def read_folder(diretory_name, folder):
 		mag_channel, phase_channel = get_mag_phase(file_stft)
 		instrument[0].append(mag_channel)
 		instrument[1].append(phase_channel)
-		return instrument
+	return instrument

@@ -28,9 +28,9 @@ def get_train_data(mixture_list, instrument_list, length):
 		print("Length of mixtures and instruments mismatch")
 		sys.exit("Byee")
 	else:
-		train_data = divide_data(mixture_list, length)
-		test_data = divide_data(instrument_list, length)
+		train_x = divide_data(mixture_list, length)
+		train_y = divide_data(instrument_list, length)
 	dataset = {}
-	dataset['train_data'] = train_data
-	dataset['test_data'] = test_data
+	dataset['train_x'] = train_x
+	dataset['train_y'] = train_y
 	return dataset

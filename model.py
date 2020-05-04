@@ -40,20 +40,20 @@ def model():
 
 def train_model(dataset, epochs):
 	#dataset shall be a dictionary which shall contain the appropriate x and y
-	x_train = None
-	y_train = None
-	if 'x_train' not in dataset.keys():
+	train_x = None
+	train_y = None
+	if 'train_x' not in dataset.keys():
 		sys.exit('training set not found')
 	else:
-		x_train = dataset['x_train']
+		train_x = dataset['train_x']
 
-	if 'y_train' not in dataset.keys():
+	if 'train_y' not in dataset.keys():
 		sys.exit('train y not found')
 	else:
-		y_train = dataset['y_train']
+		train_y = dataset['train_y']
 
 	regressor = model()
-	regressor.fit(x_train, y_train, epochs = epochs)
+	regressor.fit(train_x, train_y, epochs = epochs)
 	return regressor
 
 
