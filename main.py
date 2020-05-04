@@ -31,3 +31,6 @@ def main():
 
 	trained_model = train_model(dataset, 100)
 
+
+if __name__ == "__main__":
+	main()
