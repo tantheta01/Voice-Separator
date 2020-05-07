@@ -20,3 +20,20 @@ def get_mag_phase(stft_channel):
 	mag_channel, phase_channel = librosa.magphase(stft_channel)
 	return mag_channel, phase_channel
 
+def add_zeros(matrix_original, new_size):
+	new_matrix = np.zeros(new_size, dtype=float)
+	new_matrix[:,:matrix_original.shape[1]]=matrix_original
+	return new_matrix
+
+#now the length of each magnitude matrix has been made multiple of 25 by padding with zeros. phase matrix is still the same shape
+
+def padding(file_mag):
+	file_mag = add_zeros(file_mag, (file_mag.shape[0], int((file_mag.shape[1]-1)/25)+1))
+	return file_mag
+
+
+def data_augmentation(stft):
+	augmented_stft = np.zeros(stft.shape, dtype=complex)
+	for i in range(stft.shape[1]):
+		augmented_stft[:, i] = stft[:, stft.shape[1]-1-i]
+	return augmented_stft

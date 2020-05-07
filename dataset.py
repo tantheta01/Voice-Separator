@@ -39,7 +39,13 @@ def read_folder(diretory_name, folder):
 	#2 lists, 1 for magnitude 1 for phase
 	for file in os.listdir(folder_name):
 		file_stft, sr = load_file(str(diretory_name) + str(folder_name) + str(file))
+		augmented_file_stft = data_augmenttion(file_stft)
 		mag_channel, phase_channel = get_mag_phase(file_stft)
+		augmented_mag_channel, augmented_phase_channel = get_mag_phase(augmented_file_stft)
+		mag_channel = padding(mag_channel)
+		augmented_mag_channel = padding(augmented_mag_channel)
 		instrument[0].append(mag_channel)
+		instrument[0].append(augmented_mag_channel)
 		instrument[1].append(phase_channel)
+		instrument[1].append(augmented_phase_channel)
 	return instrument
