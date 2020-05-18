@@ -25,7 +25,7 @@ def func_model(input_shape=(25, 513, 1), Con1 = None, MaxP=None, Con2 = None, de
  	Con2_bass, Con2_vocals, Con2_drums, Con2_others = Con2['bass'], Con2['vocals'], Con2['drums'], Con2['others']
  	dense_bass, dense_vocals, dense_drums, dense_others = dense['bass'], dense['vocals'], dense['drums'], dense['others']
  	reshape_bass, reshape_vocals, reshape_drums, reshape_others = reshape['bass'], reshape['vocals'], reshape['drums'], reshape['others']
- 	ConT2_bass, ConT2_Vocals, ConT2_drums, ConT2_others = ConT2['bass'], ConT2['vocals'], ConT2['drums'], ConT2['others']
+ 	ConT2_bass, ConT2_vocals, ConT2_drums, ConT2_others = ConT2['bass'], ConT2['vocals'], ConT2['drums'], ConT2['others']
  	Ups_bass, Ups_vocals, Ups_drums, Ups_others = Ups['bass'], Ups['vocals'], Ups['drums'], Ups['others']
  	ConT1_bass, ConT1_vocals, ConT1_drums, ConT1_others = ConT1['bass'], ConT1['vocals'], ConT1['drums'], ConT1['others']
 	
