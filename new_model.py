@@ -48,9 +48,9 @@ def func_model(input_shape=(25, 513, 1), Con1 = None, MaxP=None, Con2 = None, de
 	for layer in dense_vocals:
 		inp_vocals =Dense(layer, activation='relu')(inp_vocals)
 	for layer in dense_drums:
-		inp_bass =Dense(layer, activation='relu')(inp_drums)
+		inp_drums =Dense(layer, activation='relu')(inp_drums)
 	for layer in dense_others:
-		inp_bass =Dense(layer, activation='relu')(inp_others)
+		inp_drums =Dense(layer, activation='relu')(inp_others)
 
 	inp_bass = Reshape(reshape_bass)(inp_bass)
 	inp_drums = Reshape(reshape_drums)(inp_drums)
