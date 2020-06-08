@@ -23,9 +23,9 @@ def stft_n_others(channel):
 
 def get_data(matrix):
 	fbins, tbins = matrix.shape
-	data = np.zeros((int((tbins-1)/25) + 1, fbins, 25))
-	for i in range(int(tbins/25)):
-		data[i, :, :] = matrix[:, i*25: (i+1)*25]
+	data = np.zeros((int((tbins-1)/50) + 1, fbins, 50))
+	for i in range(int(tbins/50)):
+		data[i, :, :] = matrix[:, i*50: (i+1)*50]
 	return data
 
 def read_dir(dir_, nsongs=100, channel=0, train=True):

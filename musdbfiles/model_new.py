@@ -66,7 +66,7 @@ def model_get(inp_shape = (513, 50, 1), hconv = (449,1), vconv = (1,25), Dense_b
 
 
 
-def compile_model(loss = None, optimizer = 'adam', model):
+def compile_model(model, loss = None, optimizer = 'adam'):
 	if loss is None:
 		drums = model.get_layer(name='drums').output
 		vocals = model.get_layer(name='vocals').output
