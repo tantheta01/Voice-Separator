@@ -3,6 +3,7 @@ from song import *
 from model import *
 import pickle
 import numpy as np
+import tensorflow as tf
 
 #takes path to song and pickled model as input
 def make_prediction(song_path, model_path):
@@ -13,9 +14,7 @@ def make_prediction(song_path, model_path):
 		print("Invalid song path")
 		return
 	try:
-		model_file=open(model_path, 'rb')
-		model=pickle.load(model_file)
-		model_file.close()	
+		model = tf.keras.load_model(model_path, compile=False)	
 	except:
 		print("Invalid model path")
 		return
