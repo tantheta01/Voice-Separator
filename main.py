@@ -30,6 +30,7 @@ def main():
 		sys.exit()
 
 	trained_model = train_model(dataset, 100)
+	trained_model.save("trained_model.h5")
 
 
 if __name__ == "__main__":
