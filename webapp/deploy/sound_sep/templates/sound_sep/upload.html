@@ -1,0 +1,12 @@
+{% extends 'sound_sep/base.html' %}
+
+{% block upload %}
+<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<label for="fileins">Insert File</label>
+	<input type="file" name="audiofile.wav"/>
+	<label for = 'Filename'>FileName</label>
+	<input type="text"/>
+	<button type="submit">Submit</button>
+</form>
+{% endblock %}

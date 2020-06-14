@@ -2,6 +2,18 @@ import numpy as np
 import librosa
 import sys
 
+def test_model(X, model, orig_time_length):
+
+    x_test = X['x_test']
+    bass, drums, vocals, others = model.predict(x_test)
+
+    # if the model is predicting a binary mask kindly uncomment
+    # bass = bass*x_test
+    # drums = drums*x_test
+    # vocals = vocals*x_test
+    # others = others*x_test
+
+
 
 
 
@@ -12,7 +24,7 @@ def get_istft(mix_stft, input_mag, pred):
         print("parameters size mismatch")
         sys.exit()
     else:
-        input_mag , pred  =  input_mag(input_mag.shape[0],513,50) , pred.reshape(pred.shape[0],513,50)
+        input_mag , pred  =  input_mag.reshape(input_mag.shape[0],513,50) , pred.reshape(pred.shape[0],513,50)
         mix_mag , pred_mag = np.zeros((513,50*input_mag.shape[0])) , np.zeros((513,50*pred.shape[0]))
 
 
@@ -24,7 +36,7 @@ def get_istft(mix_stft, input_mag, pred):
             ith_pred=pred[i,:,:].reshape(513,50)
             pred_mag[:,i*50:(i+1)*50]=ith_pred
         
-        mix_mag , pred_mag = mix_mag[:,:-(50*input_mag.shape[0]-mix_stft[1])] , pred_mag[:,:-(50*pred.shape[0]-mix_stft[1])] 
+        mix_mag , pred_mag = mix_mag[:,:-(50*input_mag.shape[0]-mix_stft.shape[1])] , pred_mag[:,:-(50*pred.shape[0]-mix_stft.shape[1])] 
         
         if mix_stft.shape! = pred_mag.shape:
             print("mix_stft size mismatch")
