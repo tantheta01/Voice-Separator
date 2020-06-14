@@ -1,6 +1,9 @@
-from django.shortcuts import render
-# from .apps import WebappConfig
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import AppUser
+from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import default_storage
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
 import os
 
 
@@ -23,3 +26,16 @@ def upload_file(request):
 
 
 # def return_separation()
+
+def login_page(request):
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.gt('password')
+		person = authenticate(username = username, password = password)
+		if person is not None:
+			print("Login successfully done")
+			login(request, person)
+
+			return redirect('postlogin')
+
+	
