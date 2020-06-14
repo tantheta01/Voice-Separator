@@ -5,8 +5,10 @@
 	{% csrf_token %}
 	<label for="fileins">Insert File</label>
 	<input type="file" name="audiofile.wav"/>
-	<label for = 'Filename'>FileName</label>
-	<input type="text"/>
-	<button type="submit">Submit</button>
+	<br>
+	<label for = "Filename">Filename</label>
+	<input type="text" name="Filename"/>
+	<br>
+	<input type="submit" value="Upload"/>
 </form>
 {% endblock %}
