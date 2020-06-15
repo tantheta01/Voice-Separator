@@ -41,6 +41,7 @@ def show_download_files(request):
 		# 	response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_name)
 		# 	return response
 		f_vocals,f_bass,f_drum,f_others=separate(file_name)
+		#default_storage.delete(file_name)		# uncomment when real separation is implemented
 	else:
 		f_vocals,f_bass,f_drum,f_others=None, None, None, None
 	list_of_paths=[f_vocals, f_bass, f_drum, f_others]
