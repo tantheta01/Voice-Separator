@@ -5,6 +5,7 @@ from django.core.files.storage import default_storage
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 import os
+# from django
 
 
 from django.http import HttpResponse, JsonResponse
@@ -39,3 +40,9 @@ def login_page(request):
 			return redirect('postlogin')
 
 	
+
+def serve_file(request):
+	response = request.get('url')
+	file = default_storage.open('Pattern recognitions Algorithms.pdf', 'rb').read()
+	response['Content-Disposition'] = 'attachment; filename = audiofile.wav'
+	return HttpResponse(file)
