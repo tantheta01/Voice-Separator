@@ -4,10 +4,7 @@
 <form method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
 	<label for="fileins">Insert File</label>
-	<input type="file" name="audiofile.wav"/>
-	<br>
-	<label for = "Filename">Filename</label>
-	<input type="text" name="Filename"/>
+	<input type="file" name="audiofile.wav" required="True" />
 	<br>
 	<input type="submit" value="Upload"/>
 </form>

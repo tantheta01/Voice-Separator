@@ -1,0 +1,12 @@
+{% extends 'sound_sep/base.html' %}
+
+{% block upload %}
+{% if file_available %}
+	{% for single_path in pathlist %}
+		<h2><a href="{% url 'download_file' path=single_path %}">{{single_path}}</a></h2>
+		<br>
+	{% endfor %}
+{% else %}
+	<h1>No file available to download. Separate an audio file <a href="/upload">here</a></h1>
+{% endif %}
+{% endblock %}
